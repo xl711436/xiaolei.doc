@@ -1,0 +1,36 @@
+1.响应鼠标和键盘的全局事件
+2.可以单独响应鼠标或者键盘
+3.可以阻断鼠标和键盘事件 ，让其他程序无法获取
+
+钩子是在目标程序收到消息之前预先进行处理的函数
+
+钩子的种类有很14种，目前比较常见的 是鼠标和键盘
+
+钩子的作用范围： 一共有两种范围（类型）的钩子：局部的和远程的。
+
+
+钩子的种类有很多种，目前比较常见的 是鼠标和键盘
+
+WH_MSGFILTER: 监视菜单,滚动条,消息框的消息,以及传递到通过安装了Hook子程的应用程序建立的对话框的消息. 
+WH_SYSMSGFILTER:监视菜单,滚动条,消息框的消息,以及所有应用程序建立的对话框的消息. 
+WH_JOURNALRECORD:监视和记录输入事件.一般可以使用这个Hook记录连续的鼠标和键盘事件,然后通过使用WH_JOURNALPLAYBACK Hook来回放. 
+WH_JOURNALPLAYBACK:使应用程序可以插入消息到系统消息队列,可以使用这个Hook回放通过使用WH_JOURNALRECORD Hook记录下来的连续的鼠标和键盘事件. 
+WH_KEYBOARD:监视键盘输入. 
+WH_GETMESSAGE:监视从GetMessage or PeekMessage函数返回的消息.可以通过它监视鼠标和键盘输入,以及其他发送到消息队列中的消息. 
+WH_CALLWNDPROC,WH_CALLWNDPROCRET:监视发送到窗口过程的消息.系统在消息发送到接收窗口过程之前调用WH_CALLWNDPROC Hook子程,并且在窗口过程处理完消息之后调用WH_CALLWNDPRO. 
+WH_CBT: 
+在以下事件之前,系统都会调用WH_CBT Hook子程,这些事件包括: 
+1. 激活,建立,销毁,最小化,最大化,移动,改变尺寸等窗口事件; 
+2. 完成系统指令; 
+3. 来自系统消息队列中的移动鼠标,键盘事件; 
+4. 设置输入焦点事件; 
+5. 同步系统消息队列事件. 
+Hook子程的返回值确定系统是否允许或者防止这些操作中的一个. 
+
+WH_MOUSE:监视输入到消息队列中的鼠标消息. 
+WH_HARDWARE:当应用程序的前台线程处于空闲状态时,可以使用WH_FOREGROUNDIDLE Hook执行低优先级的任务. 
+WH_DEBUG:在系统调用系统中与其他Hook关联的Hook子程之前,系统会调用WH_DEBUG Hook子程. 
+WH_SHELL:外壳应用程序可以使用WH_SHELL Hook去接收重要的通知. 
+WH_FOREGROUNDIDLE:当应用程序的前台线程处于空闲状态时,可以使用WH_FOREGROUNDIDLE Hook执行低优先级的任务. 
+WH_KEYBOARD_LL:监视输入到线程消息队列中的键盘消息. 
+WH_MOUSE_LL:视输入到线程消息队列中的鼠标消息.
